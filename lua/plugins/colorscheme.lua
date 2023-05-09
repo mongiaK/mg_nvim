@@ -1,5 +1,5 @@
 return {
-  "tanvirtin/monokai.nvim",
+  { "tanvirtin/monokai.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
