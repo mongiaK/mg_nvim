@@ -19,9 +19,16 @@ return {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        config = function()
+        opts = {
+            plugins = {
+                spelling = true,
+            },
+            defaults = {},
+        },
+        config = function(_, opts)
             local wk = require("which-key")
-            wk.reset()
+            wk.setup(opts)
+            wk.register(opts.defaults)
         end,
     },
     {

@@ -1,6 +1,18 @@
 return {
     { "folke/trouble.nvim", enabled = true },
     {
+        "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = {
+                "stylua",
+                "codelldb",
+                "shfmt",
+                "delve",
+                "clangd",
+            },
+        },
+    },
+    {
         "mfussenegger/nvim-dap",
         config = function()
             local Config = require("lazyvim.config")
