@@ -1,10 +1,10 @@
 return {
-  { "tanvirtin/monokai.nvim" },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "monokai",
-      -- colorscheme = "catppuccin",
+    { "tanvirtin/monokai.nvim" },
+    {
+        "LazyVim/LazyVim",
+        opts = {
+            -- colorscheme = "monokai",
+            colorscheme = "catppuccin",
+        },
     },
-  },
 }

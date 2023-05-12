@@ -19,15 +19,30 @@ return {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        opts = {
-            default = {
-                mode = { "n", "v" },
+        config = function()
+            local wk = require("which-key")
+            wk.reset()
+        end,
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        keys = {
+      -- add a keymap to browse plugin files
+      -- stylua: ignore
+            {
+            "<leader>fp",
+            function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+            desc = "Find Plugin File",
             },
         },
-        config = function(_, opts)
-            local wk = require("which-key")
-            wk.setup(opts)
-            wk.register(opts.default)
-        end,
+        -- change some options
+        opts = {
+            defaults = {
+                layout_strategy = "horizontal",
+                layout_config = { prompt_position = "top" },
+                sorting_strategy = "ascending",
+                winblend = 0,
+            },
+        },
     },
 }
