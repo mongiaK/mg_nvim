@@ -13,6 +13,28 @@ return {
         },
     },
     {
+        "neovim/nvim-lspconfig",
+        opts = {
+            setup = {
+                clangd = function(_, opts)
+                    opts.capabilities.offsetEncoding = { "utf-16" }
+                end,
+            },
+        },
+    },
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        enable = true,
+        opts = {
+            sources = {
+                require("null-ls").builtins.formatting.clang_format.with({
+                    filetypes = { "c", "cpp", "hpp", "cc" },
+                    extra_args = { "-style={BasedOnStyle: LLVM, IndentWidth: 4}" },
+                }),
+            },
+        },
+    },
+    {
         "mfussenegger/nvim-dap",
         config = function()
             local Config = require("lazyvim.config")

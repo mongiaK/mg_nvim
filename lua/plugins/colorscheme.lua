@@ -9,6 +9,7 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter",
+        enable = false,
         opts = {
             indent = {
                 enable = false,
