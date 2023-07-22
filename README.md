@@ -4,5 +4,5 @@
 
 * usage
     ```
-    git clone https://github.com/mongiaK/neovim ~/.config/nvim
+    git clone https://github.com/mongiaK/mg_nvim ~/.config/nvim
     ```
