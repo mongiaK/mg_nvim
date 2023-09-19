@@ -1,10 +1,10 @@
 return {
-  {
-    "goolord/alpha-nvim",
-    event = "VimEnter",
-    opts = function()
-      local dashboard = require("alpha.themes.dashboard")
-      local logo = [[
+    {
+        "goolord/alpha-nvim",
+        event = "VimEnter",
+        opts = function()
+            local dashboard = require("alpha.themes.dashboard")
+            local logo = [[
 ███╗   ███╗ ██████╗ ███╗   ██╗ ██████╗ ██╗ █████╗
 ████╗ ████║██╔═══██╗████╗  ██║██╔════╝ ██║██╔══██╗
 ██╔████╔██║██║   ██║██╔██╗ ██║██║  ███╗██║███████║
@@ -12,8 +12,12 @@ return {
 ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║╚██████╔╝██║██║  ██║
 ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝  ╚═╝
       ]]
-      dashboard.section.header.val = vim.split(logo, "\n")
-      return dashboard
-    end,
-  },
+            dashboard.section.header.val = vim.split(logo, "\n")
+            return dashboard
+        end,
+    },
+    {
+        "kassio/neoterm",
+        lazy = true,
+    }
 }
