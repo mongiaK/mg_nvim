@@ -18,6 +18,18 @@ return {
         enabled = true,
     },
     {
+        -- 窗口右侧显示函数，全局变量
+        "simrat39/symbols-outline.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("symbols-outline").setup({
+                relative_width = false,
+                width = 30,
+            })
+        end
+    },
+
+    {
         "neovim/nvim-lspconfig",
         opts = {
             setup = {
