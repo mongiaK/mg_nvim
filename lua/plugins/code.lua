@@ -1,6 +1,18 @@
 return {
     { "folke/trouble.nvim", enabled = true },
     {
+        "jackMort/ChatGPT.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        },
+    },
+    {
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
