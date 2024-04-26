@@ -1,5 +1,5 @@
 local alpha_config = require("plugin_config.alpha")
-
+local keymaps = require("config.keymaps")
 return {
     {
         "goolord/alpha-nvim",
@@ -7,7 +7,9 @@ return {
         opts = alpha_config.option()
     },
     {
-        "kassio/neoterm",
-        lazy = true,
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true,
+        keys = keymaps.ToggleTermKeyMaps()
     }
 }
