@@ -10,6 +10,12 @@ function _M.SymbolsOutlineKeyMaps()
     }
 end
 
+function _M.ToggleTermKeyMaps()
+    return {
+        { "<leader>T", "<cmd>ToggleTerm<cr>", desc = "toggle term open" },
+    }
+end
+
 function _M.LeetBuddyKeyMaps()
     return {
         { "<leader>cQ", "<cmd>LBQuestions<cr>", desc = "leetcode List Questions" },
