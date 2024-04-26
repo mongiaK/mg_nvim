@@ -1,36 +1,17 @@
+local treesitter_config = require("plugin_config.treesitter")
+local lazyvim_config = require("plugin_config.lazyvim")
+
 return {
-    { "tanvirtin/monokai.nvim" },
+    {
+        "tanvirtin/monokai.nvim"
+    },
     {
         "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "monokai",
-            -- colorscheme = "catppuccin",
-        },
+        opts = lazyvim_config.option()
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        enable = false,
-        opts = {
-            indent = {
-                enable = false,
-            },
-            ensure_installed = {
-                "bash",
-                "html",
-                "javascript",
-                "json",
-                "lua",
-                "markdown",
-                "markdown_inline",
-                "python",
-                "query",
-                "regex",
-                "tsx",
-                "typescript",
-                "vim",
-                "yaml",
-                "make",
-            },
-        },
+        enable = true,
+        opts = treesitter_config.option()
     },
 }
