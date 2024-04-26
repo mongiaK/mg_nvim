@@ -13,6 +13,9 @@ function _M.config()
             -- On windows you may have to uncomment this:
             -- detached = false,
         },
+        enrich_config = function(config, on_config)
+            on_config(config)
+        end
     }
     dap.configurations.cpp = {
         {

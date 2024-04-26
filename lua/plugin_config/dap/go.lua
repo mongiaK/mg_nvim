@@ -38,12 +38,24 @@ function _M.config()
         -- Wait for delve to start
 
         vim.defer_fn(function()
-            callback({ type = "server", host = "127.0.0.1", port = port })
+            callback({
+                type = "server",
+                host = "127.0.0.1",
+                port = port,
+                enrich_config = function(config, on_config)
+                    on_config(config)
+                end
+            })
         end, 100)
     end
     -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
     dap.configurations.go = {
-        { type = "go", name = "Debug", request = "launch", program = "${file}" },
+        {
+            type = "go",
+            name = "Debug",
+            request = "launch",
+            program = "${file}"
+        },
         {
             type = "go",
             name = "Debug with args",
@@ -56,17 +68,19 @@ function _M.config()
         },
         {
             type = "go",
-            name = "Debug test", -- configuration for debugging test files
+            name = "Debug (go.mod)", -- configuration for debugging test files
             request = "launch",
-            mode = "test",
-            program = "${file}",
-        }, -- works with go.mod packages and sub packages
+            program = "${workspaceFolder}",
+        },
         {
             type = "go",
-            name = "Debug test (go.mod)",
+            name = "Debug (go.mod) with args",
             request = "launch",
-            mode = "test",
-            program = "./${relativeFileDirname}",
+            program = "${workspaceFolder}",
+            args = function()
+                local argument_string = vim.fn.input("Program arg(s): ")
+                return vim.fn.split(argument_string, " ", true)
+            end,
         },
     }
 end
