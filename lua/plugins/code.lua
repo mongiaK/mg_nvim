@@ -4,6 +4,7 @@ local mason_config = require("plugin_config.mason")
 local symbols_outline_config = require("plugin_config.symbols_outline")
 local lspconfig_config = require("plugin_config.lspconfig")
 local null_ls_config = require("plugin_config.null_ls")
+local chatgpt_config = require("plugin_config.chatgpt")
 
 return {
     -- 显示lsp的诊断信息
@@ -12,9 +13,7 @@ return {
     {
         "jackMort/ChatGPT.nvim",
         event = "VeryLazy",
-        config = function()
-            require("chatgpt").setup()
-        end,
+        config = chatgpt_config.config,
         dependencies = {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
