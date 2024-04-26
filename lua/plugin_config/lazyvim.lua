@@ -5,3 +5,5 @@ function _M.option()
         colorscheme = "catppuccin"
     }
 end
+
+return _M
