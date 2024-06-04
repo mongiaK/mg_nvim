@@ -11,5 +11,5 @@ return {
         version = "*",
         config = true,
         keys = keymaps.ToggleTermKeyMaps()
-    }
+    },
 }
